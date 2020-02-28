@@ -39,46 +39,12 @@ npm run build
 npm run server
 ```
 
-Website
-
-[https://www.qiufengh.com/](https://www.qiufengh.com/)
-
-<img src="http://s3.qiufengh.com/images/1536588077.png" width="400" />
-
-## Skill
-
-- Front-end: vue，vue-router ,vuex
-- Back-end: nodejs，express
-- database: mongodb
-- socket: websocket
-- scaffold: vue-cli
-
 ## Rendering
 
-<img src="https://vuechat-1251556596.cos.ap-guangzhou.myqcloud.com/demo/1.jpg"/>
+<img src="https://vuechat-1251556596.cos.ap-guangzhou.myqcloud.com/demo/1.jpg" width="200"/>
 
-<img src="https://vuechat-1251556596.cos.ap-guangzhou.myqcloud.com/demo/2.jpg"/>
-
-## Release
-
-<a href="./RELEASE.md">RELEASE</a>
-
-## wiki
-
-[vue+websocket+express+mongodb 实战项目（实时聊天）（一）](http://blog.csdn.net/blueblueskyhua/article/details/70807847)
-
-[vue+websocket+express+mongodb 实战项目（实时聊天）（二）](http://blog.csdn.net/blueblueskyhua/article/details/73250992)
-
-[vue-chat 项目之重构与体验优化](http://blog.csdn.net/blueblueskyhua/article/details/78159672)
+<img src="https://vuechat-1251556596.cos.ap-guangzhou.myqcloud.com/demo/2.jpg" width="200"/>
 
 ## API
 
 <a href="./API.md">API</a>
-
-## License
-
-[MIT](http://opensource.org/licenses/MIT)
-
-MIT License
-
-Copyright (c) 2018 蓝色的秋风

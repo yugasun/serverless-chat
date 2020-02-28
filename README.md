@@ -78,23 +78,9 @@ npm run prod
 
 ## 效果
 
-<img src="https://vuechat-1251556596.cos.ap-guangzhou.myqcloud.com/demo/1.jpg"/>
+<img src="https://vuechat-1251556596.cos.ap-guangzhou.myqcloud.com/demo/1.jpg" width="200"/>
 
-<img src="https://vuechat-1251556596.cos.ap-guangzhou.myqcloud.com/demo/2.jpg"/>
-
-## 版本更新
-
-**v3 新增功能**
-
-1. 网络异常判断、重连提示
-2. 多端信息同步
-3. 好友资料查看
-4. 添加好友
-5. 单聊
-6. 搜索好友
-7. 热门好友推荐
-8. 性别、手机号修改
-9. 搜索加好友
+<img src="https://vuechat-1251556596.cos.ap-guangzhou.myqcloud.com/demo/2.jpg" width="200"/>
 
 ## API
 
