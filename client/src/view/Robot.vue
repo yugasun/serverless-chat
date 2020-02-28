@@ -5,8 +5,7 @@
         <mu-appbar color="primary">
           <mu-button icon slot="left" @click="goback">
             <mu-icon value="chevron_left"></mu-icon>
-          </mu-button>
-          大白客服
+          </mu-button>Yuga 客服
           <mu-button icon slot="right">
             <mu-icon value="expand_more"></mu-icon>
           </mu-button>
@@ -30,28 +29,27 @@
         <!-- <div class="input" @keyup.enter="sendmessage">
           <input type="text" id="msg">
         </div>
-        <mu-button class="demo-raised-button" color="primary" @click="sendmessage">发送</mu-button> -->
+        <mu-button class="demo-raised-button" color="primary" @click="sendmessage">发送</mu-button>-->
         <InputSumbit @sumbit="sendmessage"></InputSumbit>
       </div>
     </div>
   </div>
-
 </template>
 
 <script type="text/ecmascript-6">
 import { mapGetters, mapState } from "vuex";
-import Alert from '@components/Alert';
+import Alert from "@components/Alert";
 import Message from "@components/Message";
 import InputSumbit from "@components/input-sumbit";
 import { HOSTER_URL, HOSTER_NAME } from "@const/index";
 
 export default {
-  name: 'Robot',
+  name: "Robot",
   data() {
     return {
       hoster: HOSTER_NAME,
       hosterImg: HOSTER_URL,
-      ishow: false,
+      ishow: false
     };
   },
   mounted() {
@@ -65,9 +63,9 @@ export default {
       this.$router.goBack();
     },
     sendmessage(info) {
-      if (info === '') {
+      if (info === "") {
         Alert({
-          content: '内容不能为空'
+          content: "内容不能为空"
         });
         return;
       }

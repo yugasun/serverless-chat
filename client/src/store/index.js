@@ -1,11 +1,11 @@
 /**
  * Created by Administrator on 2017/4/17.
  */
-import Vue from 'vue';
-import Vuex from 'vuex';
-import url from '@api/server.js';
-import {setItem, getItem} from '@utils/localStorage';
-import {ROBOT_NAME, ROBOT_URL} from '@const/index';
+import Vue from "vue";
+import Vuex from "vuex";
+import url from "@api/server.js";
+import { setItem, getItem } from "@utils/localStorage";
+import { ROBOT_NAME, ROBOT_URL } from "@const/index";
 
 Vue.use(Vuex);
 
@@ -13,12 +13,11 @@ const store = new Vuex.Store({
   state: {
     // 个人信息
     userInfo: {
-      src: getItem('src'),
-      userid: getItem('userid'),
-      id: getItem('id'),
+      src: getItem("src"),
+      userid: getItem("userid"),
+      id: getItem("id")
     },
-    lookUserInfo: {
-    },
+    lookUserInfo: {},
     // 朋友列表
     friendList: [],
     isDiscount: false,
@@ -28,36 +27,39 @@ const store = new Vuex.Store({
     roomUsers: {},
     // 存放机器人开场白
     robotmsg: [
-    {
-      id: 1,
-      username: ROBOT_NAME,
-      src: ROBOT_URL,
-      msg: '如果微信群过期了,添加作者微信(添加时记得备注:项目交流)'
-    },
-    {
-      id: 2,
-      username: ROBOT_NAME,
-      src: ROBOT_URL,
-      img: "https://s3.qiufengh.com/webchat/webcaht-my.jpeg"
-    },
-    {
-      id: 3,
-      username: ROBOT_NAME,
-      src: ROBOT_URL,
-      msg: '期待你的加入'
-    },
-    {
-      id: 4,
-      username: ROBOT_NAME,
-      src: ROBOT_URL,
-      img: "https://s3.qiufengh.com/webchat/webchat-group.jpeg"
-    },
-    {
-      id: 5,
-      username: ROBOT_NAME,
-      src: ROBOT_URL,
-      msg: '如果还有什么想知道的可以问我'
-    }],
+      {
+        id: 1,
+        username: ROBOT_NAME,
+        src: ROBOT_URL,
+        msg: "如果微信群过期了,添加作者微信(添加时记得备注:项目交流)"
+      },
+      {
+        id: 2,
+        username: ROBOT_NAME,
+        src: ROBOT_URL,
+        img:
+          "https://vuechat-1251556596.cos.ap-guangzhou.myqcloud.com/wechat.jpg"
+      },
+      {
+        id: 3,
+        username: ROBOT_NAME,
+        src: ROBOT_URL,
+        msg: "期待你的加入"
+      },
+      {
+        id: 4,
+        username: ROBOT_NAME,
+        src: ROBOT_URL,
+        img:
+          "https://vuechat-1251556596.cos.ap-guangzhou.myqcloud.com/serverless-helper.jpg"
+      },
+      {
+        id: 5,
+        username: ROBOT_NAME,
+        src: ROBOT_URL,
+        msg: "如果还有什么想知道的可以问我"
+      }
+    ],
     unRead: {
       room1: 0,
       room2: 0
@@ -92,7 +94,7 @@ const store = new Vuex.Store({
       state.isLogin = value;
     },
     setUserInfo(state, data) {
-      const {type, value} = data;
+      const { type, value } = data;
       setItem(type, value);
       state.userInfo[type] = value;
     },
@@ -104,35 +106,35 @@ const store = new Vuex.Store({
     },
     setRoomDetailInfosAfter(state, data) {
       const { roomid, msgs } = data;
-      if(!state.roomdetail[roomid]) {
+      if (!state.roomdetail[roomid]) {
         state.roomdetail[roomid] = [];
       }
       state.roomdetail[roomid].push(...msgs);
     },
-    setRoomDetailInfosBeforeNoRefresh(state, {data, roomid}) {
+    setRoomDetailInfosBeforeNoRefresh(state, { data, roomid }) {
       const list = state.roomdetail[roomid] || [];
       const newData = data.concat(list);
       state.roomdetail[roomid] = newData;
     },
-    setRoomDetailInfosBefore(state, {data, roomid}) {
+    setRoomDetailInfosBefore(state, { data, roomid }) {
       const list = state.roomdetail[roomid] || [];
       const newData = data.concat(list);
       state.roomdetail = {
-        ...(state.roomdetail),
+        ...state.roomdetail,
         [roomid]: newData
-      }
+      };
     },
-    setRoomDetailInfos(state, {data, roomid}) {
+    setRoomDetailInfos(state, { data, roomid }) {
       state.roomdetail.infos = data;
     },
     setUsers(state, data) {
       const { roomid, onlineUsers } = data;
-      const roomUsers = []
+      const roomUsers = [];
       const list = onlineUsers;
       state.roomUsers = {
-        ...(state.roomUsers),
+        ...state.roomUsers,
         [roomid]: list
-      }
+      };
       console.log(state.roomUsers);
     },
     setRobotMsg(state, data) {
@@ -155,22 +157,22 @@ const store = new Vuex.Store({
     }
   },
   actions: {
-    async getSearch({state, commit}, data) {
+    async getSearch({ state, commit }, data) {
       const res = await url.getSearch(data);
-      if(res.data.errno === 0) {
-        commit('setSearchList', res.data.data)
+      if (res.data.errno === 0) {
+        commit("setSearchList", res.data.data);
       }
     },
-    async getvipuser({state, commit}, data) {
+    async getvipuser({ state, commit }, data) {
       const res = await url.getvipuser(data);
-      if(res.data.errno === 0) {
-        commit('setvipUserList', res.data.data)
+      if (res.data.errno === 0) {
+        commit("setvipUserList", res.data.data);
       }
     },
-    async getHostUserList({state, commit}, data) {
+    async getHostUserList({ state, commit }, data) {
       const res = await url.getHostUserList(data);
-      if(res.data.errno === 0) {
-        commit('sethotUserList', res.data.data)
+      if (res.data.errno === 0) {
+        commit("sethotUserList", res.data.data);
       }
     },
     async addFriend({}, data) {
@@ -188,32 +190,32 @@ const store = new Vuex.Store({
           if (res.data.errno === 0) {
             return {
               data: res.data.data,
-              code: 0,
-            }
+              code: 0
+            };
           } else {
             return {
-              data: '图片太大,请重新选择',
-              code: 500,
-            }
+              data: "图片太大,请重新选择",
+              code: 500
+            };
           }
         }
-      } catch(e) {
+      } catch (e) {
         return {
-          data: '服务端异常,重新发送',
-          code: 500,
-        }
+          data: "服务端异常,重新发送",
+          code: 500
+        };
       }
     },
     async registerSubmit({}, data) {
       const res = await url.RegisterUser(data);
       if (res.data.errno === 0) {
         return {
-          status: 'success',
+          status: "success",
           data: res.data
         };
       }
       return {
-        status: 'fail',
+        status: "fail",
         data: res.data
       };
     },
@@ -221,39 +223,39 @@ const store = new Vuex.Store({
       const res = await url.loginUser(data);
       if (res.data.errno === 0) {
         return {
-          status: 'success',
+          status: "success",
           data: res.data
         };
       }
       return {
-        status: 'fail',
+        status: "fail",
         data: res.data
       };
     },
-    async getUserInfo({state, commit}, data) {
+    async getUserInfo({ state, commit }, data) {
       const res = await url.getUserInfo(data);
-      if(res.data.errno === 0) {
-        commit('setLookUserInfo', res.data.data);
+      if (res.data.errno === 0) {
+        commit("setLookUserInfo", res.data.data);
       }
     },
-    async postListFriend({state, commit}, data) {
+    async postListFriend({ state, commit }, data) {
       const res = await url.postListFriend(data);
-      if(res.data.errno === 0) {
-        commit('setFriendList', res.data.data);
+      if (res.data.errno === 0) {
+        commit("setFriendList", res.data.data);
       }
     },
-    async getAllMessHistory({state, commit}, data) {
+    async getAllMessHistory({ state, commit }, data) {
       try {
         const res = await url.RoomHistoryAll(data);
         if (res.data.errno === 0) {
           const result = res.data.data;
-          if(data.msgid) {
-            commit('setRoomDetailInfosBeforeNoRefresh', {
+          if (data.msgid) {
+            commit("setRoomDetailInfosBeforeNoRefresh", {
               data: result.data,
               roomid: data.roomid
             });
           } else {
-            commit('setRoomDetailInfosBefore', {
+            commit("setRoomDetailInfosBefore", {
               data: result.data,
               roomid: data.roomid
             });
@@ -261,28 +263,26 @@ const store = new Vuex.Store({
 
           return {
             data: result.data
-          }
+          };
         }
-      } catch(e) {
-
-      }
+      } catch (e) {}
     },
-    async getRobatMess({commit}, data) {
+    async getRobatMess({ commit }, data) {
       const username = ROBOT_NAME;
       const src = ROBOT_URL;
       const res = await url.getRobotMessage(data);
       if (res) {
         const robotdata = JSON.parse(res.data.data);
-        let msg = '';
+        let msg = "";
         // 分类信息
         if (robotdata.code === 100000) {
           msg = robotdata.text;
         } else if (robotdata.code === 200000) {
           msg = robotdata.text + robotdata.url;
         } else {
-          msg = '暂不支持此类对话';
+          msg = "暂不支持此类对话";
         }
-        commit('setRobotMsg', {msg, username, src});
+        commit("setRobotMsg", { msg, username, src });
       }
     }
   }

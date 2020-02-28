@@ -1,10 +1,9 @@
 <template>
   <div class="hello">
-    <div class="">
+    <div class>
       <mu-appbar>
-        <mu-button icon slot="left" >
-        </mu-button>
-        <div class="title">webchat</div>
+        <mu-button icon slot="left"></mu-button>
+        <div class="title">serverless-chat</div>
         <mu-button icon slot="right">
           <mu-icon value="expand_more"></mu-icon>
         </mu-button>
@@ -39,13 +38,13 @@
             </mu-list-item-action>
           </mu-list-item>
         </mu-list>
-        <mu-divider/>
+        <mu-divider />
         <mu-list>
           <mu-sub-header>客服</mu-sub-header>
           <mu-list-item avatar button :ripple="true" @click="chatRobot('')">
             <mu-list-item-action>
               <mu-avatar class="avatar">
-                <img :src="robot">
+                <img :src="robot" />
               </mu-avatar>
             </mu-list-item-action>
             <mu-list-item-title>客服大白(微信群，作者联系方式，找我)</mu-list-item-title>
@@ -56,10 +55,17 @@
         </mu-list>
         <mu-list>
           <mu-sub-header>好友</mu-sub-header>
-          <mu-list-item avatar button :ripple="true" @click="chatSingle(item.friendId._id, item.friendId.name)" v-for="item in friendList" :key="item._id">
+          <mu-list-item
+            avatar
+            button
+            :ripple="true"
+            @click="chatSingle(item.friendId._id, item.friendId.name)"
+            v-for="item in friendList"
+            :key="item._id"
+          >
             <mu-list-item-action>
               <mu-avatar class="avatar">
-                <img :src="item.friendId.src">
+                <img :src="item.friendId.src" />
               </mu-avatar>
             </mu-list-item-action>
             <mu-list-item-title>{{item.friendId.name}}</mu-list-item-title>
@@ -79,12 +85,12 @@ import Confirm from "@components/Confirm";
 import Bottom from "@components/Bottom";
 import Avatar from "@components/Avatar";
 import { mapState } from "vuex";
-import { sort } from '@utils/tools';
+import { sort } from "@utils/tools";
 import { ROBOT_URL, HOST_URL1, HOST_URL2 } from "@const/index";
 import socket from "../socket";
 
 export default {
-  name: 'Loan',
+  name: "Loan",
   data() {
     return {
       house1: HOST_URL1,
@@ -105,7 +111,7 @@ export default {
         this.$store.commit("setLoginState", true);
       }
     }
-    this.$store.dispatch('postListFriend', {selfId: this.userInfo.id});
+    this.$store.dispatch("postListFriend", { selfId: this.userInfo.id });
   },
   methods: {
     async chatwindow(roomID) {
@@ -119,12 +125,24 @@ export default {
         }
         return;
       }
-      this.$router.push({ path: "/chat", query: { roomId: roomID, type: 'group' } });
+      this.$router.push({
+        path: "/chat",
+        query: { roomId: roomID, type: "group" }
+      });
     },
     async chatSingle(friendId, friendName) {
       const userId = this.userInfo.id;
       const roomID = sort(userId, friendId);
-      this.$router.push({ path: "/chat", query: { roomId: roomID, from: userId,to: friendId, type: 'single', friendName } });
+      this.$router.push({
+        path: "/chat",
+        query: {
+          roomId: roomID,
+          from: userId,
+          to: friendId,
+          type: "single",
+          friendName
+        }
+      });
     },
     chatRobot() {
       this.$router.push({ path: "/robot" });
@@ -154,10 +172,12 @@ export default {
 .title {
   text-align: center;
 }
+
 .chat-list {
   overflow-y: scroll;
   height: calc(100% - 112px);
 }
+
 .avatar {
   position: relative;
 

@@ -1,31 +1,31 @@
 <template>
   <div class="login">
     <div class="content">
-      <form action="" name="form2">
+      <form action name="form2">
         <div class="context-logo">
-          <img src="https://s3.qiufengh.com/webchat/webchat-logo-160.png" alt="">
-          <!-- <SvgModal></SvgModal> -->
+          <mu-icon value="account_circle" size="80" color="blue" />
         </div>
-        <Input v-model="username" type="text" placeholder="输入账号"/>
-        <br/>
-        <Input v-model="password" type="password" placeholder="输入密码"/>
-        <br/>
+        <Input v-model="username" type="text" placeholder="输入账号" />
+        <br />
+        <Input v-model="password" type="password" placeholder="输入密码" />
+        <br />
         <div class="box box2" @click="submit">
           <Arrow></Arrow>
         </div>
       </form>
       <div class="bottom-wraper">
         <mu-flex align-items="center">
-          <mu-flex justify-content="center" fill><div @click="register" class="tip-user">注册帐号</div></mu-flex>
+          <mu-flex justify-content="center" fill>
+            <div @click="register" class="tip-user">注册帐号</div>
+          </mu-flex>
           <mu-flex justify-content="center">|</mu-flex>
-          <mu-flex justify-content="center" fill><div class="tip-user">忘记密码</div></mu-flex>
+          <mu-flex justify-content="center" fill>
+            <div class="tip-user">忘记密码</div>
+          </mu-flex>
         </mu-flex>
-        <div class="bottom-arguemnt">
-          登录即可代表同意协议
-        </div>
+        <div class="bottom-arguemnt">登录即可代表同意协议</div>
         <p style="text-align: center">浙ICP备16040413号-1</p>
       </div>
-
     </div>
   </div>
 </template>
@@ -35,12 +35,12 @@ import SvgModal from "@components/svg-modal/index.vue";
 import Alert from "@components/Alert";
 import Toast from "@components/Toast";
 import socket from "../socket";
-import ios from '@utils/ios';
-import Arrow from '@components/arrow';
-import Input from '@components/input';
+import ios from "@utils/ios";
+import Arrow from "@components/arrow";
+import Input from "@components/input";
 
 export default {
-  name: 'Login',
+  name: "Login",
   components: {
     Arrow,
     SvgModal,
@@ -96,7 +96,7 @@ export default {
           content: "用户名和密码不能为空"
         });
       }
-      this.password = '';
+      this.password = "";
     },
     register() {
       this.$router.push({ path: "register" });
@@ -106,8 +106,7 @@ export default {
     // 微信 回弹 bug
     ios();
   },
-  computed: {
-  }
+  computed: {}
 };
 </script>
 
@@ -121,25 +120,30 @@ export default {
   background: #eaeaea;
   background-size: 100% 100%;
   background-position: center center;
+
   .content {
     width: 80vw;
     margin: 60px auto 20px;
+
     .context-logo {
       width: 70vw;
       margin: 0 auto 20px;
       display: flex;
       justify-content: center;
       align-items: center;
+
       img {
         width: 80px;
         height: 80px;
       }
     }
+
     .mu-input {
       width: 100%;
     }
   }
 }
+
 .btn-radius {
   width: 100%;
   height: 40px;
@@ -151,18 +155,20 @@ export default {
   text-align: center;
   border-radius: 50px;
 }
+
 .tip-user {
-  width 100%;
-  text-align:center;
+  width: 100%;
+  text-align: center;
 }
 
 .bottom-wraper {
   position: absolute;
   bottom: 50px;
-  left:0;
+  left: 0;
   right: 0;
   margin: 0 auto;
   width: 60vw;
+
   .bottom-arguemnt {
     margin-top: 5px;
     text-align: center;
@@ -183,36 +189,41 @@ export default {
   border-radius: 55% 45% 73% 27% / 70% 58% 42% 30%;
   animation: morph1 4s infinite;
 }
+
 // @keyframes morph {
-//   0% {
-//     border-radius: 26% 74% 49% 51% / 21% 51% 49% 79%;
-//   }
-//   25% {
-//     border-radius: 74% 26% 50% 50% / 53% 29% 71% 47%;
-//   }
-//   50% {
-//     border-radius: 48% 52% 28% 72% / 45% 71% 29% 55%;
-//   }
-//   75% {
-//     border-radius: 48% 52% 76% 24% / 70% 49% 51% 30%;
-//   }
-//   100% {
-//     border-radius: 26% 74% 49% 51% / 21% 51% 49% 79%;
-//   }
+// 0% {
+// border-radius: 26% 74% 49% 51% / 21% 51% 49% 79%;
+// }
+// 25% {
+// border-radius: 74% 26% 50% 50% / 53% 29% 71% 47%;
+// }
+// 50% {
+// border-radius: 48% 52% 28% 72% / 45% 71% 29% 55%;
+// }
+// 75% {
+// border-radius: 48% 52% 76% 24% / 70% 49% 51% 30%;
+// }
+// 100% {
+// border-radius: 26% 74% 49% 51% / 21% 51% 49% 79%;
+// }
 // }
 @keyframes morph1 {
   0% {
     border-radius: 26% 74% 49% 51% / 21% 51% 49% 79%;
   }
+
   25% {
     border-radius: 74% 26% 50% 50% / 53% 29% 71% 47%;
   }
+
   50% {
     border-radius: 48% 52% 28% 72% / 45% 71% 29% 55%;
   }
+
   75% {
     border-radius: 48% 52% 76% 24% / 70% 49% 51% 30%;
   }
+
   100% {
     border-radius: 26% 74% 49% 51% / 21% 51% 49% 79%;
   }

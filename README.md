@@ -1,10 +1,8 @@
-# webchat
+# serverless-chat
 
-<img src="https://s3.qiufengh.com/webchat/webchat-logo-160.png" />
+[![Build Status](https://www.travis-ci.org/yugasun/serverless-chat.svg?branch=master)](https://www.travis-ci.org/yugasun/serverless-chat)
 
-[![Build Status](https://www.travis-ci.org/hua1995116/webchat.svg?branch=master)](https://www.travis-ci.org/hua1995116/webchat)
-
-[中文版](./README.md) [English](./zh_en.md)
+中文 | [English](./README.en.md)
 
 ## 功能
 
@@ -25,34 +23,37 @@
 - [x] 搜索好友
 - [x] 热门好友推荐
 
-
 ## 启动项目
 
-Dev环境: MongoDB、Node 8.5.0+、Npm 5.3.0+
+Dev 环境: MongoDB、Node 8.5.0+、Npm 5.3.0+
 
-Prod环境: Redis、MongoDB、Node 8.5.0+、Npm 5.3.0+
+Prod 环境: Redis、MongoDB、Node 8.5.0+、Npm 5.3.0+
 
 启动客户端
+
 ```
-$webchat cd client
+$serverless-chat cd client
 
 $client npm install -----安装依赖
 
 $client npm run serve -----运行
 
 ```
+
 启动服务端
+
 ```
 $client cd ..
 
-$webchat npm install
+$serverless-chat npm install
 
-$webchat npm run dev
+$serverless-chat npm run dev
 ```
 
 ## 打包
 
 打包客户端
+
 ```
 cd client
 
@@ -60,49 +61,30 @@ npm run build
 ```
 
 服务端运行
+
 ```
 cd ..
 
 npm run prod
 ```
 
-在线观看
-
-[https://www.qiufengh.com/](https://www.qiufengh.com/)
-
-<img src="http://s3.qiufengh.com/images/1536588077.png" width="400" />
-
-## 技术交流
-
-
-<img src="https://s3.qiufengh.com/webchat/webchat-group.jpeg?imageView2/2/w/360" width="300" />
-
-如果群过期加微信，拉你进群。
-
-<img src="https://s3.qiufengh.com/webchat/webcaht-my.jpeg" width="300" />
-
-
 ## 技术栈
 
- - 前端 vue，vue-router ,vuex
- - 后端 nodejs，express
- - 数据库 mongodb
- - 通讯 websocket
- - 脚手架工具 vue-cli
+- 前端 vue，vue-router ,vuex
+- 后端 nodejs，express
+- 数据库 mongodb
+- 通讯 websocket
+- 脚手架工具 vue-cli
 
 ## 效果
 
-<img src="http://s3.qiufengh.com/screenshot/1.png"/>
+<img src="https://vuechat-1251556596.cos.ap-guangzhou.myqcloud.com/demo/1.jpg"/>
 
-<img src="http://s3.qiufengh.com/screenshot/2.png"/>
-
-<img src="http://s3.qiufengh.com/screenshot/3.png"/>
-
-<img src="http://s3.qiufengh.com/screenshot/4.png"/>
+<img src="https://vuechat-1251556596.cos.ap-guangzhou.myqcloud.com/demo/2.jpg"/>
 
 ## 版本更新
 
-**v3新增功能**
+**v3 新增功能**
 
 1. 网络异常判断、重连提示
 2. 多端信息同步
@@ -114,33 +96,6 @@ npm run prod
 8. 性别、手机号修改
 9. 搜索加好友
 
-## 版本预览
-
-**v2 稳定版本**
-
-https://github.com/hua1995116/webchat/tree/v2.2.0
-
-**其他版本**
-
-<a href="./RELEASE.md">RELEASE</a>
-
-## 项目wiki
-[vue+websocket+express+mongodb实战项目（实时聊天）（一）](http://blog.csdn.net/blueblueskyhua/article/details/70807847)
-
-[vue+websocket+express+mongodb实战项目（实时聊天）（二）](http://blog.csdn.net/blueblueskyhua/article/details/73250992)
-
-[vue-chat项目之重构与体验优化](http://blog.csdn.net/blueblueskyhua/article/details/78159672)
-
-[消息未读之点不完的小红点（Node+Websocket）](https://juejin.im/post/5bf227676fb9a049ac78bfcf)
-
 ## API
 
 <a href="./API.md">API</a>
-
-## License
-
-[MIT](http://opensource.org/licenses/MIT)
-
-MIT License
-
-Copyright (c) 2018 蓝色的秋风

@@ -97,7 +97,7 @@ export default {
       roomid: '',
       allUser: {
         '005': {
-          src: 'static/files/825836avatar-hua1995116.jpeg'
+          src: 'static/files/825836avatar-yugasun.jpeg'
         }
       }
     };
@@ -116,7 +116,7 @@ export default {
     // let i = 0;
     // while(i < 180) {
     //   allUser[i] = {
-    //     src: 'static/files/825836avatar-hua1995116.jpeg'
+    //     src: 'static/files/825836avatar-yugasun.jpeg'
     //   }
     //   i++;
     //   console.log(i);

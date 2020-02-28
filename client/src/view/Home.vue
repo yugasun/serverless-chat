@@ -37,13 +37,7 @@
       <!--<mu-divider/>-->
     </div>
     <div class="logout">
-      <mu-button
-        full-width
-        class="demo-raised-button"
-        color="error"
-        @click="logout"
-        >退出</mu-button
-      >
+      <mu-button full-width class="demo-raised-button" color="error" @click="logout">退出</mu-button>
     </div>
     <div style="height:80px"></div>
     <Bottom></Bottom>
@@ -56,7 +50,7 @@ import { clear, removeItem } from "@utils/localStorage";
 import Confirm from "@components/Confirm";
 import Alert from "@components/Alert";
 import Bottom from "@components/Bottom";
-import UserHead from "@components/userHead";
+import UserHead from "@components/UserHead";
 
 export default {
   name: "Home",
@@ -80,7 +74,6 @@ export default {
   },
   methods: {
     checkNotice() {
-
       if (!("Notification" in window)) {
         Alert({
           content: "您的浏览器暂不支持该功能"
@@ -97,7 +90,7 @@ export default {
 
       // 否则我们需要向用户获取权限
       else if (Notification.permission !== "denied") {
-        console.log('获取权限');
+        console.log("获取权限");
         Notification.requestPermission(function(permission) {
           // 如果用户同意，就可以向他们发送通知
           if (permission === "granted") {
@@ -154,7 +147,7 @@ export default {
     },
     handleGithub() {
       Alert({
-        content: "https://github.com/hua1995116/webchat"
+        content: "https://github.com/yugasun/serverless-chat"
       });
     },
     handleTips() {
@@ -180,7 +173,6 @@ export default {
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
-
 .logout {
   margin: 0 20px;
 }
